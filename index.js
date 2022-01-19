@@ -6,6 +6,10 @@ const app = express();
 // we require only ./routers(folder) and it by default select the index.js file
 app.use('/', require("./routers"));
 
+// setting up ejs as my view engine
+app.set("view engine" , "ejs");
+app.set("views" , "./views");
+
 app.listen(port , function(err){
     if(err){
         console.log(`error in connection : ${err}`);

@@ -10,4 +10,7 @@ console.log("router is loaded");
 // using home action from home controller
 router.get('/', homeController.home);
 
+// now every route starting with /user will be directed toward users.js router
+router.use("/users" , require("./users"));
+
 module.exports = router;
