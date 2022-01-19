@@ -1,6 +1,13 @@
 const express = require("express");
 const port = "8000";
+// starting express server
 const app = express();
+
+// including express layout in the project
+const expressLayouts = require("express-ejs-layouts");
+
+// using express layout before routes because layouts should be ready before router caal the layouts 
+app.use(expressLayouts);
 
 // using express router (middleware)
 // we require only ./routers(folder) and it by default select the index.js file
