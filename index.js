@@ -6,11 +6,18 @@ const app = express();
 // including express layout in the project
 const expressLayouts = require("express-ejs-layouts");
 
+// using express.static to access static file stored in the assets diractory
+app.use(express.static("./assets"));
+
 // using express layout before routes because layouts should be ready before router caal the layouts 
 app.use(expressLayouts);
 
+app.set("layout extractStyles" , true);
+app.set("layout extractScripts" , true);
+
 // using express router (middleware)
 // we require only ./routers(folder) and it by default select the index.js file
+// we can write app.use('/', require("./routers/index"));
 app.use('/', require("./routers"));
 
 // setting up ejs as my view engine
