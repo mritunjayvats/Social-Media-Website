@@ -19,6 +19,7 @@ app.set("views" , "./views");
 
 app.listen(port , function(err){
     if(err){
+        // showing error message
         console.log(`error in connection : ${err}`);
         return;
     }
