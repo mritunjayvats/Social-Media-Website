@@ -6,12 +6,15 @@ const app = express();
 // including express layout in the project
 const expressLayouts = require("express-ejs-layouts");
 
+const db = require("./config/mongoose");
+
 // using express.static to access static file stored in the assets diractory
 app.use(express.static("./assets"));
 
 // using express layout before routes because layouts should be ready before router caal the layouts 
 app.use(expressLayouts);
 
+// extracting the css and js file from the body tag
 app.set("layout extractStyles" , true);
 app.set("layout extractScripts" , true);
 
