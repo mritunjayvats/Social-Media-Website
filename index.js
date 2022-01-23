@@ -6,6 +6,7 @@ const app = express();
 // including express layout in the project
 const expressLayouts = require("express-ejs-layouts");
 
+// requiring the mondo db confir file from config folder
 const db = require("./config/mongoose");
 
 // using express.static to access static file stored in the assets diractory
