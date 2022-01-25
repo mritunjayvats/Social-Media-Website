@@ -5,7 +5,7 @@ const router = express.Router();
 const homeController = require("../controllers/home_controller");
 // checking if router is loaded or not
 // NOTE:- router is loaded(message on console) is appearing first on console beacuse this file is used as a middleware
-console.log("router is loaded");
+// console.log("router is loaded");
 
 // using home action from home controller
 router.get('/', homeController.home);

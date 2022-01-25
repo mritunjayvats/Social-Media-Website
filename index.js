@@ -9,6 +9,15 @@ const expressLayouts = require("express-ejs-layouts");
 // requiring the mondo db confir file from config folder
 const db = require("./config/mongoose");
 
+// including cookie parser module to read and write from the cookie
+const cookieParser = require("cookie-parser");
+
+// getting the result from the post request
+app.use(express.urlencoded());
+
+// using cookieParser as a middleware 
+app.use(cookieParser());
+
 // using express.static to access static file stored in the assets diractory
 app.use(express.static("./assets"));
 
