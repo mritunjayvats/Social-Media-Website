@@ -37,8 +37,11 @@ module.exports.create = function(req , res){
             return res.redirect("back");
         }    
         
-    });
-     
+    });    
+}
+
+module.exports.test = function(req, res){
+    
 }
 
 module.exports.createSession = function(req , res){
