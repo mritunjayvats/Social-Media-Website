@@ -7,12 +7,22 @@ module.exports.profile = function(req, res){
 }
 
 module.exports.signIn = function(req, res){
+
+    if(req.isAuthenticated()){
+        return res.redirect("/users/profile");
+    }
+
     return res.render("user_sign_in", {
         title:"signIn"
     });
 }
 
 module.exports.signUp = function(req, res){
+
+    if(req.isAuthenticated()){
+        return res.redirect("/users/profile");
+    }
+
     return res.render("user_sign_up", {
         title:"signUp"
     });
@@ -20,7 +30,7 @@ module.exports.signUp = function(req, res){
 
 module.exports.create = function(req , res){
     if(req.body.password != req.body.confirm_password){
-        console.log("passwod not matched");
+        // console.log("passwod not matched");
         return res.redirect('back');
     }
 
@@ -42,5 +52,5 @@ module.exports.create = function(req , res){
 }
 
 module.exports.createSession = function(req , res){
-    // To do later ..
+   return res.redirect('/');
 }
