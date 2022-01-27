@@ -22,6 +22,16 @@ const passportLocal = require("./config/passport-local-strategy");
 // including mongo connect to save the sesison key into the mongo db
 const MongoStore = require('connect-mongo');
 
+// includng sass middleware
+const sassMiddleware = require("node-sass-middleware");
+
+app.use(sassMiddleware({
+    src :"./assets/scss",
+    dest: "./assets/css",
+    debug: true,
+    outputStyle: "extended",
+    prefix: "/css"
+}))
 // including cookie parser module to read and write from the cookie
 // const cookieParser = require("cookie-parser");
 // const { cookie } = require("express/lib/response");
