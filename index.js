@@ -20,7 +20,7 @@ const passport = require("passport");
 const passportLocal = require("./config/passport-local-strategy");
 
 // including mongo connect to save the sesison key into the mongo db
-// const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo');
 
 // including cookie parser module to read and write from the cookie
 // const cookieParser = require("cookie-parser");
@@ -61,6 +61,16 @@ app.use(session({
    cookie:{
        maxAge:(1000 * 60 *100)
    } ,
+   store: MongoStore.create(
+    { 
+        mongoUrl: "mongodb://localhost/code_dev_env", 
+        autoRemove: 'disabled'
+    },
+    function(err){ 
+        console.log(err || "connect-mongodb setup ok");
+    }
+)
+
 //    store: new MongoStore(
 //     {
 //         mongooseConnection: db,
