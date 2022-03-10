@@ -13,4 +13,6 @@ router.get('/', homeController.home);
 // now every route starting with /user will be directed toward users.js router
 router.use("/users" , require("./users"));
 
+router.use("/posts" , require('./posts'));
+
 module.exports = router;
